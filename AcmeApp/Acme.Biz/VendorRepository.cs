@@ -8,6 +8,7 @@ namespace Acme.Biz
 {
     public class VendorRepository
     {
+        public List<Vendor> vendors;
         /// <summary>
         /// Retrieve one vendor.
         /// </summary>
@@ -28,6 +29,24 @@ namespace Acme.Biz
             }
             return vendor;
         }
+
+        
+        public ICollection<Vendor> Retrieve()
+        {
+            if (vendors == null)
+            {
+                vendors = new List<Vendor>()
+                {
+                    { new Vendor() { VendorId = 1, CompanyName = "ABC Corp", Email = "abc@abc.com" } },
+                    { new Vendor() { VendorId = 2, CompanyName = "XYZ Corp", Email = "xyz@xyz.com" } }
+                };
+            }
+            Console.WriteLine(vendors);
+
+            return vendors;
+        }
+
+       
 
         /// <summary>
         /// Save data for one vendor.
